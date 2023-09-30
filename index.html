@@ -5,9 +5,42 @@
   <style>
     body { margin: 2em; font-family: 'Oswald', sans-serif; } 
     p, ul, li { font-weight: 300; }
+
+
+    .stage, .ring, .img {
+      width:100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      user-select:none;
+    }
+
+    .stage {
+      overflow:hidden;
+      background:#000;  
+    }
+
+    .stage div, svg {
+      position: absolute;
+    }
+
+    .stage .container {
+      perspective: 2000px;
+      width: 300px;
+      height: 400px;  
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+    }
   </style>
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--   
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+ -->
 </head>
 <body>
+
 
 <h1>The Duchess on Duke (at 62nd)</h1>
 <h2>Portland, Oregon</h2>
@@ -19,64 +52,204 @@
   <li>Closest markets: Sawyers, Space Age, Food Fair; food/drink: Misdemeanor Meadows (live music), Mehri's Cafe & Bakery</li>
   <li>On the 19, and 5-7 blocks to 71 (@52nd and @Flavel), 10 (@Harold) bus lines</li>
   <li>Short ride to Spring Water Corridor</li>
+  <li>Schools: Woodmere Elementary School, Whitman Elementary School, Lane Middle School, ACCESS Middle School, Community Transition Project School</li>
+  <li>Services: Woodstock firestation, Providence Milwaukie & Kaiser Sunnyside hospitals</li>
 </ul>
+
+<!-- <div class="stage">  
+  <div class="container">
+    <div class="ring">
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+      <div class="img"></div>
+    </div>
+  </div>
+</div> -->
+
+<h3>The House</h3>
+<p>Use your keyboard left/right arrows to swipe through photos.</p>
+<img id="viewer" src="" width="800px"/>
+<div id="info"> </div>
+
 
 <h3>The House</h3>
 <p>WiFi 290Mbs up+down (<a href="https://www.speedtest.net/result/14260214857">see speeds</a>)</p>
-<ul>
-  <li>Main Floor: Living & Dining room, Kitchen, 1/2 Bath with Laundry, Sun Room</li>
-  <li>Sun Room: workout equipment, South & West facing windows, smart TV, plants, and seating/couch&mdash;our space for entertaining and relaxing; sliding doors open to backyard</li>
-  <li>Living Room: full-sized piano keyboard, and setup for playing and recording (@home quality) music</li>
-  <li>Fendced Backyard: Hot tub, heated shower, firepit, covered area w/propane heaterm outdoor grill and oven, access to garage/basement, blueberries (3 kinds) & pear tree</li>
-  <li>Split-Level Upstairs: 2 Bedrooms, Bathroom with 2 sinks, tub, and shower</li>
-  <li>Garage/Basement: storage, garden/yard shed, workshop space</li>
-  <li>Safety: air filters, smoke & carbon monoxide detectors, fire extinguishers, first aid kits, Woodstock firestation, Providence Milwaukie & Kaiser Sunnyside hospitals</li>
-</ul>
 
-<h3>Owner/Tennant</h3>
-<p>I am on sabbatical from 25 years in tech/consulting. I'm currently enrolled in two programs learning somatic-based coaching and healing, and play
-  music and acrobat when I can. 
-  My partner runs a recording studio and works as an audio engineer contractor during the day. 
-  While I often work from home, I'm also traveling a bit for my schooling.
-  We're typically early to bed and early to rise—and use to a quieter household; though enjoy throwing the ocassional dinner party, yard party, and musical gathering.
-  I said good-bye to my 20 year old pets last year, and would be happy to walk your dog on ocassion—though sadly can't allow cats due to allergies.  
-</p>
+<p><b>Main Floor:</b> Living & Dining room, Kitchen, 1/2 Bath with Laundry, Sun Room</p>
+    <ul>
+    <li>Living Room has working fireplace</li>
+    <li>Side Bedroom/Office is off the living-room &mdash;smallest bedroom with built-in closets along interior wall and barn door, western and northern light</li>
+    <li>Sun Room has south & west facing windows, mounted smart TV, sliding doors open to backyard</li>
+    </ul>
 
-<h3>The Home + Rooms (<a href="https://www.dropbox.com/sh/b18bn30dget0zi9/AAAPa1GLW0Y2AWCnE7MFgthha?dl=0">Photos</a>)</h3>
+<p><b>Split-Level Upstairs:</b> 2 Bedrooms separated by shared bathroom, hallway linnen closet
+    <ul>
+    <li>Back Bedroom&mdash; primary bedroom with 2 closets and both southern & eastern light (dresser & shelves optional)</li>
+    <li>Front Bedroom&mdash; slightly smaller with 1 closet and both northern & eastern light </li>
+    </ul> </p>
+
+<p><b>Garage/Basement:</b> secondary fridge and freezer, garden/yard shed, workshop space</p>
+
+
+<p><b>Fendced Backyard:</b> covered patio, firepit, propane heater, BBQ grill w/smoker, access to garage/basement, blueberries (3 kinds) & pear tree &mdash; wildlife include racoons on ocassion, squirrels, humming birds, finches, and various other birds</p>
+
+<p><i>safety: air filters, smoke & carbon monoxide detectors, fire extinguishers</i></p>
+
+<h3>Owner</h3>
 <p>Prior to living in this house, affectionately named the Duchess (due to her placement and a statue on the porch), 
   I owned a 3 story home near Mt Tabor for 16 years. There, I rented rooms for almost 15 years, so am well-versed in 
   tending to a house that's communal and private&mdash;and safe. 
   (You can check me out on <a href="https://www.airbnb.com/users/show/3677422">AirBnB</a>, where I'm proud to share that I was a "super host" at the time I was hosting.)
-  Many who visit The Duchess home are quick to point out the <em>"sanctuary"</em> vibe. This is a space where you can feel safe, 
-  recharge, and get creative. 
-<ul>
-  <li>Back Room: &mdash; split-level upstairs and back: my bedroom that I share w/my partner.</li>
-  <li>Front Room: &mdash; split-level upstairs, first room separated from the other bedroom by the bathroom (did I mention 2 sinks??). 
-                        Currently setup as an office, I will be clearing it out in February for March availability. Lots of morning light with an East window and double North windows.</li>
-  <li>Side Room: &mdsah; off the living-room, this is a small room. Luckily, closets line an entire wall, so no dresser needed&mdash;maximizing floor space.
-                        Currently setup as a spare/guest room, available as soon as February 1.</li>
-</ul>
+  Many who visit The Duchess are quick to point out the <em>"sanctuary"</em> vibe. This is a space where you can feel safe, 
+  recharge, and get creative. <a href="https://www.dropbox.com/sh/b18bn30dget0zi9/AAAPa1GLW0Y2AWCnE7MFgthha?dl=0">more photos while owner-occupied</a></p>
 
-<h3>House Rules + Terms</h3>
-  <li>Monthly Rentals: Last month's rent due at time of booking to hold reservation. 
-    Fully refundable if canceled more than 30 days before move-in date. 
-    First month's rent and deposit due at time of move-in.</li>
-  <li>No additional cleaning fee. 
-    You are expected to keep shared space tidy and leave your room as clean as you found it. </li>
-  <li>No smoking in the house or near open windows.</li>
-  <li>Your body, your choice: imbibe, eat, smoke what you will&mash;as 
-    long as it doesn't place any of us in harm's (or legal's) way.</li>
-  <li>Quiet hours expected between 9pm and 9am.</li>
-  <li>Monthly Rent: 
-    $850 Front Room. $750 Side Room.
-    One person per room max. 
-    Couples may inquire about renting both rooms for a discount.</li>
-  <li>Utilities: $150 &mdash; water, electric, trash, internet/WiFi, security, monthly cleaning</li>
-  <li>Deposit: $450</li>
+<h3>Rental Information</h3>
+  <li>Monthly Rent: $2,750 includes weekly recycling and every-other-week trash service</li>
+  <li>Utilities will be responsibility of renter:
+      <ul>
+        <li> natural gas— cooking stove & furnace (avgs $10/mo when furnace not in use)</li>
+        <li> electric— home w/2 adults avg < $100/mo</li>
+        <li> internet—currently serviced with fiber via CenturyLink, ±$80/mo</li>
+        <li> water/sewer—averages ±$100/mo</li>
+      </ul>    
+  </li> 
+  <li>Deposit: $1,500 terms persuant to <a href="https://oregon.public.law/statutes/ors_90.300">ORS 90.300</a></li>
+  <li>Pets: OK provided (a) you can show proof of pet liability in your renter's insurance or (b) an additional $500 security deposit.</li>
 </ul>
-
 
 <h3>Questions?</h3>
 <p>house@mlnarik.com</p>
+
+<script type="text/javascript">
+
+$(function() {
+
+  var pictureIndex = 0;
+  var pictures = ['pictures/21441648_0.jpg'];
+  for(let i=1; i<30; i++){
+    pictures[i]='pictures/21441648_'+i+'_0.jpg';
+  }
+
+  function changePicture(indexOffset) {
+    pictureIndex += indexOffset;
+    if (pictureIndex >= pictures.length) {
+      pictureIndex = 0;
+    } else if (pictureIndex < 0) {
+      pictureIndex = pictures.length - 1;
+    }
+    $('#viewer').attr('src', pictures[pictureIndex]);
+    $('#info').text((pictureIndex + 1) + "/" + pictures.length);
+  }
+
+  changePicture(0);
+  // console.log(pictures);
+
+  $(document).keydown(function(e){
+    var left = -1, right = 1;
+      if (e.keyCode == 37) {
+         changePicture(left); return false;
+      } else if (e.keyCode == 39) {
+        changePicture(right); return false;
+      }
+  });
+
+  //gestures
+  let touchstartX = 0
+  let touchendX = 0
+      
+  function checkDirection() {
+    if (touchendX < touchstartX) alert('swiped left!')
+    if (touchendX > touchstartX) alert('swiped right!')
+  }
+
+  document.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX
+  })
+
+  document.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX
+    checkDirection()
+  })
+
+
+});
+
+
+// let xPos = 0,
+//     imageURLs = [''];
+//     for(let i=1; i<30; i++){
+//       imageURLs[i]='_' + i; // 21441648_29_0
+//     }
+//     // store the 10 image URLs that will be used as background images in the carousel DIVs
+
+
+// gsap.timeline()
+//     .set('.ring', { rotationY:180, cursor:'grab' }) //set initial rotationY so the parallax jump happens off screen
+//     .set('.img',  { // apply transform rotations to each image
+//       rotateY: (i)=> i*-36,
+//       transformOrigin: '50% 50% 500px',
+//       z: -500,
+//       backgroundImage:(i)=>'url(pictures/21441648'+imageURLs[i]+'_0.jpg)',
+//       backgroundPosition:(i)=>getBgPos(i),
+//       backfaceVisibility:'hidden'
+//     })    
+//     .from('.img', {
+//       duration:1.5,
+//       y:200,
+//       opacity:0,
+//       stagger:0.1,
+//       ease:'expo'
+//     })
+//     .add(()=>{
+//       $('.img').on('mouseenter', (e)=>{
+//         let current = e.currentTarget;
+//         gsap.to('.img', {opacity:(i,t)=>(t==current)? 1:0.5, ease:'power3'})
+//       })
+//       $('.img').on('mouseleave', (e)=>{
+//         gsap.to('.img', {opacity:1, ease:'power2.inOut'})
+//       })
+//     }, '-=0.5')
+
+// $(window).on('mousedown touchstart', dragStart);
+// $(window).on('mouseup touchend', dragEnd);
+      
+
+// function dragStart(e){ 
+//   if (e.touches) e.clientX = e.touches[0].clientX;
+//   xPos = Math.round(e.clientX);
+//   gsap.set('.ring', {cursor:'grabbing'})
+//   $(window).on('mousemove touchmove', drag);
+// }
+
+
+// function drag(e){
+//   if (e.touches) e.clientX = e.touches[0].clientX;    
+
+//   gsap.to('.ring', {
+//     rotationY: '-=' +( (Math.round(e.clientX)-xPos)%360 ),
+//     onUpdate:()=>{ gsap.set('.img', { backgroundPosition:(i)=>getBgPos(i) }) }
+//   });
+  
+//   xPos = Math.round(e.clientX);
+// }
+
+
+// function dragEnd(e){
+//   $(window).off('mousemove touchmove', drag);
+//   gsap.set('.ring', {cursor:'grab'});
+// }
+
+
+// function getBgPos(i){ //returns the background-position string to create parallax movement in each image
+//   return ( 100-gsap.utils.wrap(0,360,gsap.getProperty('.ring', 'rotationY')-180-i*36)/360*500 )+'px 0px';
+// }
+</script>
 </body>
 </html>
