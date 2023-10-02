@@ -55,28 +55,13 @@
   <li>Services: Woodstock firestation, Providence Milwaukie & Kaiser Sunnyside hospitals</li>
 </ul>
 
-<!-- <div class="stage">  
-  <div class="container">
-    <div class="ring">
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-      <div class="img"></div>
-    </div>
-  </div>
-</div> -->
-
 <h3>The House</h3>
-<p>Use your keyboard left/right arrows to swipe through photos.</p>
-<img id="viewer" src="" width="800px"/>
-<div id="info"> </div>
+<em>use your keyboard left/right arrows or gesture to swipe through photos</em>
 
+<div class="slideshow">
+  <img id="viewer" src="" width="800px"/>
+  <div id="info"> </div>
+</div>
 
 <h3>The House</h3>
 <p>WiFi 290Mbs up+down (<a href="https://www.speedtest.net/result/14260214857">see speeds</a>), <em>"smart" smoke & carbon monoxide detectors, fire extinguishers, security cams</em></p>
@@ -122,8 +107,9 @@
   tending to a house that's communal and private&mdash;and safe. 
   (You can check me out on <a href="https://www.airbnb.com/users/show/3677422">AirBnB</a>, where I'm proud to share that I was a "super host" at the time I was hosting.)
   Many who visit The Duchess are quick to point out the <em>"sanctuary"</em> vibe. This is a space where you can feel safe, 
-  recharge, and get creative. <a href="https://www.dropbox.com/sh/b18bn30dget0zi9/AAAPa1GLW0Y2AWCnE7MFgthha?dl=0">more photos while owner-occupied</a></p>
+  recharge, and get creative. <a href="https://www.dropbox.com/sh/b18bn30dget0zi9/AAAPa1GLW0Y2AWCnE7MFgthha?dl=0">More photos while owner-occupied</a></p>
 
+<p><b>Share:</b> <a href="https://bit.ly/duchessonduke">https://bit.ly/duchessonduke</a></p>
 
 <script type="text/javascript">
 
@@ -163,8 +149,9 @@ $(function() {
   let touchendX = 0
       
   function checkDirection() {
-    if (touchendX < touchstartX) alert('swiped left!')
-    if (touchendX > touchstartX) alert('swiped right!')
+    var left = -1, right = 1;
+    if (touchendX < touchstartX) { changePicture(right); alert('swiped left!'); }
+    if (touchendX > touchstartX) { changePicture(left); alert('swiped right!') }
   }
 
   document.addEventListener('touchstart', e => {
@@ -178,76 +165,6 @@ $(function() {
 
 
 });
-
-
-// let xPos = 0,
-//     imageURLs = [''];
-//     for(let i=1; i<30; i++){
-//       imageURLs[i]='_' + i; // 21441648_29_0
-//     }
-//     // store the 10 image URLs that will be used as background images in the carousel DIVs
-
-
-// gsap.timeline()
-//     .set('.ring', { rotationY:180, cursor:'grab' }) //set initial rotationY so the parallax jump happens off screen
-//     .set('.img',  { // apply transform rotations to each image
-//       rotateY: (i)=> i*-36,
-//       transformOrigin: '50% 50% 500px',
-//       z: -500,
-//       backgroundImage:(i)=>'url(pictures/21441648'+imageURLs[i]+'_0.jpg)',
-//       backgroundPosition:(i)=>getBgPos(i),
-//       backfaceVisibility:'hidden'
-//     })    
-//     .from('.img', {
-//       duration:1.5,
-//       y:200,
-//       opacity:0,
-//       stagger:0.1,
-//       ease:'expo'
-//     })
-//     .add(()=>{
-//       $('.img').on('mouseenter', (e)=>{
-//         let current = e.currentTarget;
-//         gsap.to('.img', {opacity:(i,t)=>(t==current)? 1:0.5, ease:'power3'})
-//       })
-//       $('.img').on('mouseleave', (e)=>{
-//         gsap.to('.img', {opacity:1, ease:'power2.inOut'})
-//       })
-//     }, '-=0.5')
-
-// $(window).on('mousedown touchstart', dragStart);
-// $(window).on('mouseup touchend', dragEnd);
-      
-
-// function dragStart(e){ 
-//   if (e.touches) e.clientX = e.touches[0].clientX;
-//   xPos = Math.round(e.clientX);
-//   gsap.set('.ring', {cursor:'grabbing'})
-//   $(window).on('mousemove touchmove', drag);
-// }
-
-
-// function drag(e){
-//   if (e.touches) e.clientX = e.touches[0].clientX;    
-
-//   gsap.to('.ring', {
-//     rotationY: '-=' +( (Math.round(e.clientX)-xPos)%360 ),
-//     onUpdate:()=>{ gsap.set('.img', { backgroundPosition:(i)=>getBgPos(i) }) }
-//   });
-  
-//   xPos = Math.round(e.clientX);
-// }
-
-
-// function dragEnd(e){
-//   $(window).off('mousemove touchmove', drag);
-//   gsap.set('.ring', {cursor:'grab'});
-// }
-
-
-// function getBgPos(i){ //returns the background-position string to create parallax movement in each image
-//   return ( 100-gsap.utils.wrap(0,360,gsap.getProperty('.ring', 'rotationY')-180-i*36)/360*500 )+'px 0px';
-// }
 </script>
 </body>
 </html>
