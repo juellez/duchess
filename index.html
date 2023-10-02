@@ -150,8 +150,14 @@ $(function() {
       
   function checkDirection() {
     var left = -1, right = 1;
-    if (touchendX < touchstartX) { changePicture(right); alert('swiped left!'); }
-    if (touchendX > touchstartX) { changePicture(left); alert('swiped right!') }
+    if (touchendX < touchstartX) { 
+      changePicture(right); 
+      //console.log('swiped left!'); 
+    }
+    if (touchendX > touchstartX) { 
+      changePicture(left); 
+      //console.log('swiped right!') 
+    }
   }
 
   document.addEventListener('touchstart', e => {
